@@ -7,14 +7,32 @@ const refs = {
 let timerId = null;
 
 refs.start.addEventListener('click', onPushStartColor);
+refs.stop.addEventListener('click', onPushStopColor);
 
-refs.stop.addEventListener('click', () => {
-  clearInterval(timerId);
-});
+refs.stop.disabled = true;
 
 function onPushStartColor() {
+  disabledStarBtn();
+  changeColor();
+
   timerId = setInterval(changeColor, 1000);
-  console.log(timerId);
+}
+
+function onPushStopColor() {
+  disabledStopBtn();
+  clearInterval(timerId);
+}
+
+function disabledStarBtn() {
+  if ((refs.start.disabled = true)) {
+    refs.stop.disabled = false;
+  }
+}
+
+function disabledStopBtn() {
+  if ((refs.stop.disabled = true)) {
+    refs.start.disabled = false;
+  }
 }
 
 function changeColor() {
