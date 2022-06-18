@@ -12,13 +12,11 @@ refs.form.addEventListener('submit', onFormSubmit);
 function onFormInput(e) {
   e.preventDefault();
   formData[e.target.name] = Number(e.target.value);
-  console.log(formData);
 }
 
 function onFormSubmit(e) {
   e.preventDefault();
   Promise.all(arrayPromise(formData));
-  // Promise.all(formData);
 }
 
 function arrayPromise({ delay, step, amount }) {
