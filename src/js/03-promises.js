@@ -17,6 +17,7 @@ function onFormInput(e) {
 function onFormSubmit(e) {
   e.preventDefault();
   Promise.all(arrayPromise(formData));
+  e.currentTarget.reset();
 }
 
 function arrayPromise({ delay, step, amount }) {
