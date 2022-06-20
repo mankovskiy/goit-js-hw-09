@@ -44,12 +44,10 @@ function onStart() {
     const deltaTime = checkDate - currentTime;
     const remainingTime = convertMs(deltaTime);
     currentInterface(remainingTime);
-    if (deltaTime < 0) {
+    console.log(deltaTime);
+    if (deltaTime < 1000) {
       clearInterval(timerId);
-      refs.days.textContent = `00`;
-      refs.hours.textContent = `00`;
-      refs.minutes.textContent = `00`;
-      refs.seconds.textContent = `00`;
+      Notify.success('"Время вышло!!!"');
     }
   }, 1000);
 }
